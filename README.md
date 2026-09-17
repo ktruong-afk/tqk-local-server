@@ -62,6 +62,11 @@ logs, local SSL certs — stays inside that same folder. Nothing touches
 your user profile or the Windows registry. Delete the folder and it's
 gone, no trace.
 
+## What's next
+
+See [ROADMAP.md](ROADMAP.md) — pushing projects straight to a real server
+over SSH or a hosting panel's API, no manual SFTP required.
+
 ## TQK Multisite
 
 Outgrown a single local server? If you're operating many independent
