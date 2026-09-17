@@ -4,9 +4,10 @@ A free, portable local development server for Windows — PHP, Laravel and
 WordPress, running as a proper desktop app instead of a browser tab full of
 config files.
 
-Think Laragon/XAMPP, but with one-click WordPress installs, multi-PHP
-switching, real project management, and a database/backup workflow that
-doesn't require phpMyAdmin for every little thing.
+Think Laragon/XAMPP, but with multiple PHP *and* MySQL/MariaDB versions
+side by side, one-click WordPress installs, a disposable local SSH box for
+testing, and a database/backup workflow that doesn't require phpMyAdmin for
+every little thing.
 
 ## Download
 
@@ -28,27 +29,59 @@ profile or the Windows registry. Delete the folder and it's gone.
 
 ## Features
 
-- **Apps** — one-click create/import PHP, Laravel and WordPress projects;
-  each gets its own domain, database and PHP version automatically.
-- **Databases** — browse every local MySQL/MariaDB database, create/drop
-  them, open phpMyAdmin (installed on demand), and:
-  - **SQL Dumps** — dump any database to a plain, portable `.sql.gz` with
-    the real `mysqldump`, right from the Overview page. Hand it to any DBA
-    or MySQL tool — no proprietary format.
-  - **Backup & restore** — back up a whole app (code + database) to one
-    zip, or just a database; restore either with one click; import any
-    `.sql`/`.sql.gz` file already on disk into a chosen database.
-- **PHP** — switch PHP version per project, install/enable/disable
-  extensions, auto-install Xdebug matched to the running PHP build.
-- **Domains & SSL** — local `.test` (or your own TLD) domains with a
-  trusted local CA, so every project gets working HTTPS with no browser
-  warnings.
-- **Web / Server** — start, stop and configure Apache/Nginx, MySQL/MariaDB
-  and Mail (Mailpit) as independent services, each with its own status and
-  logs.
-- **Extras** — optional Redis, Memcached and a portable Git, installed on
-  demand.
-- English and Vietnamese UI, switchable instantly.
+### Projects
+One-click create or import PHP, Laravel and WordPress projects. Each one
+gets its own domain, database and PHP version automatically — no manual
+vhost editing.
+
+### Multiple PHP versions, side by side
+Install as many PHP versions as you need and pick one per project — no
+more "switch PHP globally and hope nothing else breaks." Per version: turn
+extensions on/off, toggle OPcache, and enable Xdebug with one click (it's
+downloaded and matched to that exact PHP build automatically, since a
+wrong Xdebug DLL just silently fails to load).
+
+### Multiple MySQL/MariaDB versions, side by side
+Same idea as PHP: install several database server versions and switch
+which one is active — each version keeps its own data folder, so nothing
+gets mixed up or lost when you switch back and forth.
+
+### SQL Dumps, backup & restore
+- **SQL Dumps** — dump any database to a plain, portable `.sql.gz` with
+  the real `mysqldump`, right from the Overview page (not TQK Server's own
+  format) — hand it to any DBA or MySQL tool.
+- **App backups** — back up a whole project (code + database) to one zip
+  in a single click.
+- **Restore & import** — restore any backup with one click, or import any
+  `.sql`/`.sql.gz` file already on your disk into a chosen database.
+- Everything runs as a background job with live byte-level progress, so
+  large databases don't leave you guessing whether it's stuck.
+- phpMyAdmin is one click away too (installed on demand).
+
+### Local SSH test box
+Spin up a disposable Ubuntu server inside WSL, purely on your own machine,
+to test anything that needs a real SSH target — deploy scripts, remote
+backup/pull tooling, whatever you're building. Fully isolated from your
+real machine; regenerate its key any time.
+
+### Domains & SSL that just work
+Local `.test` domains (or your own TLD) with a trusted local CA installed
+automatically, so every project gets working HTTPS with no browser
+warnings — no more clicking through "Not Secure" on localhost.
+
+### Web server & mail, your choice
+Switch between Apache (full `.htaccess` support) and Nginx (fastest for
+WordPress) — only one runs at a time, and there's a one-click config test
+before you commit to it. A built-in mail catcher grabs everything sent by
+WordPress, Laravel or plain PHP `mail()` so you can read it in the app —
+nothing ever actually leaves your computer.
+
+### Extras
+Optional Redis, Memcached and a portable Git, installed on demand when a
+project needs them.
+
+### Bilingual
+English and Vietnamese UI, switchable instantly, no reload.
 
 ## TQK Multisite
 
