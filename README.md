@@ -11,17 +11,22 @@ every little thing.
 
 ## Download
 
-Grab the latest `TQKServer.exe` from the [Releases](../../releases) page.
+Grab the latest `TQKServer.zip` from the [Releases](../../releases) page
+(~1.6 GB — it ships with PHP, MySQL, Apache, Nginx, phpMyAdmin and Memcached
+already inside, so it works the moment you extract it, no extra downloads).
 
-No installer, no setup wizard — just run it.
+No installer, no setup wizard.
 
 ## Getting started
 
-1. Put `TQKServer.exe` in its own folder (an external drive works fine —
-   the app is fully portable).
-2. Run it.
-3. The app installs the runtime pieces it needs (PHP, MySQL/MariaDB, a web
-   server) on first use, straight from the Overview page.
+1. Extract the zip anywhere (an external drive works fine — the app is
+   fully portable). Keep `TQKServer.exe` and the `bin/` folder next to each
+   other; they need to stay together.
+2. Run `TQKServer.exe`.
+3. That's it — PHP, MySQL/MariaDB, Apache/Nginx and phpMyAdmin are already
+   there. The app only reaches out to the internet for things that aren't
+   bundled: extra PHP/MySQL versions, Xdebug, Redis, Composer packages,
+   the WSL SSH test box, and so on — all optional, all on demand.
 
 Everything the app writes — sites, databases, SQL dumps and backups, logs,
 local SSL certs — stays inside that same folder. Nothing touches your user
